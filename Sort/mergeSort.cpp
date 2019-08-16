@@ -1,6 +1,7 @@
 /** balis 20190209  **/
 
-#include<bits/stdc++.h>
+
+#include<iostream>
 using namespace std;
 #define LEN 50000
 void swap(int& m, int& n){int tmp = m; m = n; n = tmp;}
@@ -8,7 +9,7 @@ void swap(int& m, int& n){int tmp = m; m = n; n = tmp;}
 ///MERGE SORT
 void mergeSort(int arr[], int l, int r){
     int tmp[r-l];
-    int mid = (r-l) > 1;
+    int mid = (r-l) >> 1;
     if(mid > l){
         mergeSort(arr, l, mid);
     }
@@ -16,10 +17,10 @@ void mergeSort(int arr[], int l, int r){
         mergeSort(arr, mid+1, r);
     }
     int i = l;
-    int j = r;
+    int j = mid;
     int k = 0;
 
-    while(i<l && j<r){
+    while(i<mid && j<r){
         if(arr[i] < arr[j]){
             tmp[k++] = arr[i++];
         } else{
@@ -40,7 +41,6 @@ void mergeSort(int arr[], int l, int r){
 }
 
 
-／*************main****************／
 int main(int arg, char* args[]) {
 
     //int* arr = new int[LEN];
@@ -48,12 +48,12 @@ int main(int arg, char* args[]) {
     for(int i = 0; i < LEN; ++i)
         arr[i] = LEN - i;
     auto begin = chrono::system_clock::now().time_since_epoch() / chrono::seconds(1);
-    quickSort(arr, 0, LEN-1);
+    mergeSort(arr, 0, LEN-1);
     auto end = chrono::system_clock::now().time_since_epoch() / chrono::seconds(1);
     cout << "sort " << LEN << " numbers use " << end - begin << " ms" << endl;
 
     for(int j = 0; j < LEN; ++j)
-        //cout << arr[j] << endl;
+        cout << arr[j] << endl;
 
     return 0;
 }
