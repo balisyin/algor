@@ -27,13 +27,7 @@ int heapAdjust(int arr[], int n) {
             swap(arr[i], arr[big]);
             i = big;
         }
-
     }
-
-
-
-
-    int leftKid = 
 }
 
 

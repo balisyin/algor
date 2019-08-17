@@ -8,7 +8,7 @@
 #include<stdio.h>
 using namespace std;
 
-//BW1 get the number show 1time, others show 3times
+// get the number show 1time, others show 2times
 int the1times(int arr[], int n){
     int onetime = 0;
     

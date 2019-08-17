@@ -1,13 +1,15 @@
 /** balis 20190209  **/
 
-#include<bits/stdc++.h>
+//#include<bits/stdc++.h>
+#include<iostream>
+#include<stdio.h>
 using namespace std;
 #define LEN 50000
 void swap(int& m, int& n){int tmp = m; m = n; n = tmp;}
 
 ///HEAP SORT
 void heapAdjust(int arr[], int n){
-    i = 0;
+    int i = 0;
     while(i < n){
         int kidL = i<<1 + 1;
         int kidR = kidL + 1;
@@ -29,7 +31,7 @@ void heapAdjust(int arr[], int n){
 
 void heapSort(int arr[], int n) {
     for(int i = 0; i < (n >> 1); ++i)
-        heapAdjust(&arr[i], n)
+        heapAdjust(&arr[i], n);
 
     for(int j = n -1; j > 1; --j){
         swap(arr[0], arr[j]);
@@ -39,7 +41,7 @@ void heapSort(int arr[], int n) {
 }
 
 
-／*************main****************／
+
 int main(int arg, char* args[]) {
 
     //int* arr = new int[LEN];
@@ -47,7 +49,7 @@ int main(int arg, char* args[]) {
     for(int i = 0; i < LEN; ++i)
         arr[i] = LEN - i;
     auto begin = chrono::system_clock::now().time_since_epoch() / chrono::seconds(1);
-    quickSort(arr, 0, LEN-1);
+    heapSort(arr, LEN-1);
     auto end = chrono::system_clock::now().time_since_epoch() / chrono::seconds(1);
     cout << "sort " << LEN << " numbers use " << end - begin << " ms" << endl;
 
