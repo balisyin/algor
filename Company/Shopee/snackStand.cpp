@@ -1,3 +1,6 @@
+/** balis 20190818 
+ * Shopee的零食柜 牛客网上，典型DP问题  **/
+
 #include<iostream>
 #include<vector>
 
@@ -7,7 +10,7 @@ void getMaxPacePerMinute(long n, long m, long bottom, long ceil, vector<long> &m
     int maxPace = 0;
     while (bottom <= ceil) {
         maxPace = bottom + ((ceil - bottom) >> 1);
-        //cout << "maxpace:" << maxPace <<" " <<bottom <<" " << ceil << endl;
+        cout << "maxpace:" << maxPace <<" " <<bottom <<" " << ceil << endl;
         auto num = 0;
         for(auto i = 0; i < n;) {
             auto sum = 0;
@@ -20,7 +23,7 @@ void getMaxPacePerMinute(long n, long m, long bottom, long ceil, vector<long> &m
             }
             
         }
-        //cout << "m ,num:" << m << " " << num << endl;
+        cout << "m ,num:" << m << " " << num << endl;
         if (num <= m) {
             ceil = maxPace -1;
         } else {
