@@ -34,7 +34,7 @@ ListNode* mergeSortedList(ListNode* pHead1, ListNode* pHead2){
         pCur = pCur->next;
     }
     
-
+    return pHead;
     
 }
 
@@ -60,8 +60,8 @@ int main() {
     printLinkList(pHead1);
     printLinkList(pHead2);
 
-    //ListNode* pHead = mergeSortedList(pHead1, pHead2);
+    ListNode* pHead = mergeSortedList(pHead1, pHead2);
     
-    //printLinkList(pHead);
+    printLinkList(pHead);
     return 0;
 }
