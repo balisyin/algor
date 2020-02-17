@@ -3,7 +3,7 @@
 ///#include<bits/stdc++.h>
 #include<iostream>
 #include<stdio.h>
-#define LEN 50000
+#define LEN 50
 using namespace std;
 
 void swap(int& m, int& n){int tmp = m; m = n; n = tmp;}
@@ -43,7 +43,7 @@ int main(int arg, char* args[]) {
     cout << "sort " << LEN << " numbers use " << end - begin << " ms" << endl;
 
     for(int j = 0; j < LEN; ++j)
-        //cout << arr[j] << endl;
+        cout << arr[j] << endl;
 
     return 0;
 }
