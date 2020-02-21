@@ -1,28 +1,54 @@
+/* balisyin 20190221 滑动窗口问题
+包含所以非零数字，且连续最短
+输入 12 5
+2 5 3 1 3 2 4 1 0 5 4 3 
+2 [5 3 1 3 2 4] 1 0 5 4 3 
+2 5 3 1 【3 2 4 1 0 5】 4 3 
+输出 6
+*/
+
 #include<iostream>
+#include<map>
 using namespace std;
-int minShotForAllColor(int arr[], int len, int color) {
-    //2 5 3 1 3 2 4 1 0 5 4 3
-    //12 5
-    int minShot = INT_MAX;
-    
-    for(auto i= 0; i < len; i++) {
-        if ((len-i) < color) {
-            break;
-        }
-        map<int,int> shot;
-        for (auto j = i; j < len; j++) {
-            shot[arr[i]]=1;
-            if shot.size() == color {
-                min = j-i;
-                if min < minShot {
-                    minShot = min;
-                }
-            }
-        }
-    }
-    if (minShot ==INT_MAX) {
-        return -1;
+
+int main() {
+    int total, kind;
+    cin >> total >> kind;
+    int arr[total];
+    map<int, int> count;
+    int color = 0;
+    int res = total +1;
+    for(int i=0; i< total; i++) {
+        cin >> arr[i];
+        count[i] = 0; 
     }
 
-    return minShot;
+    for(int i=0, j = 0; i < total; i++) {
+        if(arr[i] && !count[arr[i]]) {
+            color++;
+        }
+        cout << "clolor" << arr[i] << color << endl;
+
+        count[arr[i]]++;
+
+        if (color == kind) {
+            while(!arr[j] || count[arr[j]] > 1) {
+                j++;
+                count[arr[j]]--;
+            }
+            res = min(res, i-j+1);
+        }
+    }
+
+    if(res > total) {
+        res = -1;
+    }
+
+
+    cout << res << endl;;
+
+    return 0;
 }
+
+ 
+
