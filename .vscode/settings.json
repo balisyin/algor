@@ -9,6 +9,7 @@
         "vector": "cpp",
         "type_traits": "cpp",
         "__config": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cstdio": "cpp"
     }
 }
