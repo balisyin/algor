@@ -3,6 +3,7 @@
  * */
 
 #include<iostream>
+#include<vector>
 #include"header.h"
 
 using namespace std;
@@ -33,7 +34,12 @@ ListNode* mergeSortedList(ListNode* pHead1, ListNode* pHead2){
         }
         pCur = pCur->next;
     }
-    
+    if(pCur1 != nullptr) {
+        pCur->next = pCur1;
+    }
+     if(pCur2 != nullptr) {
+        pCur->next = pCur2;
+    }
     return pHead;
     
 }
@@ -41,20 +47,21 @@ ListNode* mergeSortedList(ListNode* pHead1, ListNode* pHead2){
 int main() {
     ListNode* pHead1 = new ListNode(0);
     ListNode* cur = pHead1;
-    for(auto i = 2; i < 10; i = i+2) {
+    vector<int> vec1 = {1,2, 4};
+    vector<int> vec2 = {1,3,4,5};
+    for(auto i:vec1) {
         ListNode* node = new ListNode(i);
         cur->next = node;
         cur = cur->next;
     }
 
-    ListNode* pHead2 = new ListNode(1);
+    ListNode* pHead2 = new ListNode(0);
     cur = pHead2;
-    for(auto i = 3; i < 10; i= i+2) {
+    for(auto i:vec2) {
         ListNode* node = new ListNode(i);
         cur->next = node;
         cur = cur->next;
     }
-
 
 
     printLinkList(pHead1);
