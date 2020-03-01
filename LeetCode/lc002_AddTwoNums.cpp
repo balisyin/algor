@@ -34,7 +34,7 @@ public:
             int x = (l1==nullptr) ? 0 : l1->val;
             int y = (l2==nullptr) ? 0 : l2->val;
             int sum = x + y + carry;
-            carry = (x+y)%10;
+            carry = sum%10;
             ListNode *next = new ListNode(sum/10);
             cur->next = next;
             cur = cur->next;
